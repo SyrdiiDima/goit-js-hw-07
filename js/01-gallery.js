@@ -13,8 +13,8 @@ gallery.insertAdjacentHTML('beforeend', cardsMarkup)
 
 
 function createImageCardsMarkup(galleryItems) {
-    return galleryItems.map(({preview,original,description}) => {
-        return `
+  return galleryItems.map(({ preview, original, description }) => {
+    return `
     <div class="gallery__item">
   <a class="gallery__link" href="${original}">
     <img
@@ -26,28 +26,9 @@ function createImageCardsMarkup(galleryItems) {
   </a>
 </div>
     `
-    }).join('');
+  }).join('');
   
 }
-
-// //----- //----
-
-// gallery.addEventListener('click',onGalleryContainerClick )
-
-
-
-// function onGalleryContainerClick(evt) {
-  
-//   evt.preventDefault();
-
-//   console.log(evt.target);
-//   const isGaleryEl = evt.target.classList.contains('gallery__item');
-//   if (!isGaleryEl) {
-//     return;
-//   }
-//   return evt.target.dataset.original;
-// }
-  
 
 
 const modal = basicLightbox.create(
@@ -77,17 +58,6 @@ function onGalleryImageClickOpenModal(evt) {
 function setOriginalImageURL(image, modal) {
 	modal.src = image.dataset.source;
 }
-
-
-function onBackdropClickCloseModal(e) {
-	const IMG_TAG = 'IMG';
-	const isBackdropClicked = e.target.nodeName !== IMG_TAG;
-
-	if (!isBackdropClicked) return;
-
-
-}
-body.removeEventListener('click', onBackdropClickCloseModal);
 
 function onEscapeKeydownCloseModal(e) {
   const ESC_KEY_CODE = 'Escape';
